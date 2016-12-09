@@ -10,3 +10,6 @@ ADD conf/30-custom.ini /usr/local/etc/php/conf.d/30-custom.ini
 
 RUN curl --silent --show-error https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
+
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
