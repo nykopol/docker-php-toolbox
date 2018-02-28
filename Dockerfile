@@ -1,4 +1,4 @@
-FROM php:7-fpm
+FROM php:7.1-fpm
 
 RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ libmcrypt-dev libpq-dev libldb-dev libldap2-dev phpunit git
 RUN ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
