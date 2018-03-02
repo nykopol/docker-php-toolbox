@@ -14,5 +14,9 @@ RUN curl --silent --show-error https://getcomposer.org/installer | php \
 RUN curl --silent --show-error -L -o phpunit.phar https://phar.phpunit.de/phpunit.phar \
     && mv phpunit.phar /usr/local/bin/phpunit
 
+RUN curl -L http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o php-cs-fixer \
+    && chmod a+x php-cs-fixer \
+    && mv php-cs-fixer /usr/local/bin/php-cs-fixer
+
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
