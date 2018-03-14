@@ -29,14 +29,13 @@ RUN wget https://archive.org/download/zeromq_4.1.4/zeromq-4.1.4.tar.gz \
  && make install \
  && ldconfig \
  && cd .. \
- && rm -fr zeromq-4.1.4.tar.gz zeromq-4.1.4/ \
+ && rm -fr zeromq-4.1.4.tar.gz zeromq-4.1.4/
 
- && git clone git://github.com/mkoppanen/php-zmq.git \
+RUN git clone git://github.com/mkoppanen/php-zmq.git \
  && cd php-zmq \
  && phpize && ./configure \
  && make \
  && make install \
  && cd .. \
  && rm -fr php-zmq \
-
- && echo "extension=zmq.so" > /usr/local/etc/php/conf.d/docker-php-ext-zmq.ini \
+ && echo "extension=zmq.so" > /usr/local/etc/php/conf.d/docker-php-ext-zmq.ini
