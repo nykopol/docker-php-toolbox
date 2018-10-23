@@ -1,6 +1,6 @@
 FROM php:7.1-fpm
 
-RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ libmcrypt-dev libpq-dev libldb-dev libldap2-dev git libfreetype6-dev libjpeg62-turbo-dev libpng-dev
+RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ libmcrypt-dev libpq-dev libldb-dev libldap2-dev git libfreetype6-dev libjpeg62-turbo-dev libpng-dev rabbitmq-server librabbitmq-dev
 RUN ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
     && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so
 RUN docker-php-ext-configure intl \
@@ -22,5 +22,5 @@ RUN curl -L http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o php-cs-fix
     && chmod a+x php-cs-fixer \
     && mv php-cs-fixer /usr/local/bin/php-cs-fixer
 
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
+RUN pecl install amqp
+RUN docker-php-ext-enable amqp
